@@ -17,8 +17,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(value = "com.spring.mvc.crudapp.DAO")
-@ComponentScan(value = "com.spring.mvc.crudapp.Service")
+@ComponentScan(value = "com.spring.mvc.crudapp")
 public class EntityConfig {
 
     @Bean
