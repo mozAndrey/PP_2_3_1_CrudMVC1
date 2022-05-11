@@ -11,16 +11,17 @@
 <h1>Users in DB</h1>
 <table border="1">
     <tr>
+        <th>User ID</th>
         <th>User name</th>
         <th>User LastName</th>
         <th>User Email</th>
     </tr>
 
     <tr th:each="usr, state : ${listOfUsers}">
-
+        <td th:utext="${usr.getId()}">User ID</td>
         <td th:utext="${usr.getName()}">User name</td>
         <td th:utext="${usr.getLastName()}">User LastName</td>
-        <td th:utext="${usr.getEmail()}">User Email</td> <a></a>
+        <td th:utext="${usr.getEmail()}">User Email</td>
             <!--        <td input type="button" value="${usr.getId()}" onclick="window.location.href = 'updateUser'"/>Update</td>-->
             <!--        <td input type="button" value="Update user" onclick="window.location.href = 'updateUser'"/>Delete</td>-->
     </tr>
@@ -42,7 +43,7 @@
 <br>
 <form method="get" action="/update">
     <label for="id2">Insert id to update</label>
-    <input name="id2" type="text" id="id2">
+    <input name="id2" type="text" id="id2"></form>
 <br>
 <br>
 <a href="/">go to main page</a>
