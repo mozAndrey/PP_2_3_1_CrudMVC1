@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Users</title>
@@ -16,13 +16,12 @@
         <th>User LastName</th>
         <th>User Email</th>
     </tr>
-
-    <tr th:each="usr, state : ${listOfUsers}">
+<tr th:each="usr, state : ${listOfUsers}">
         <td th:utext="${usr.getId()}">User ID</td>
         <td th:utext="${usr.getName()}">User name</td>
         <td th:utext="${usr.getLastName()}">User LastName</td>
         <td th:utext="${usr.getEmail()}">User Email</td>
-    </tr>
+</tr>
 </table>
 <br>
 <br>

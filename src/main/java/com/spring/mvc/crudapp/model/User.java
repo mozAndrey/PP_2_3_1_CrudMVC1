@@ -2,11 +2,13 @@ package com.spring.mvc.crudapp.model;
 
 
 import javax.persistence.*;
+import java.util.logging.Logger;
 
 @Entity
 @Table
 public class User {
 
+    private final static Logger LOGGER = Logger.getLogger(User.class.getName());
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -26,19 +28,14 @@ public class User {
     private String email;
 
     public User() {
+        LOGGER.info("CONSTRUCTOR without params ");
     }
 
     public User(String name, String lastName, String email) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
-    }
-
-    public User(Long id, String name, String lastName, String email) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.email = email;
+        LOGGER.info("CONSTRUCTOR with params" + " " + name + " " + lastName + " " + email);
     }
 
     public String getName() {

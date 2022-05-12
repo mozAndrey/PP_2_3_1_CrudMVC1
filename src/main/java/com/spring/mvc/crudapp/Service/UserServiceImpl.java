@@ -3,7 +3,6 @@ package com.spring.mvc.crudapp.Service;
 import com.spring.mvc.crudapp.DAO.UserDAO;
 import com.spring.mvc.crudapp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
