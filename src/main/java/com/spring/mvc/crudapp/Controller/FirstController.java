@@ -14,8 +14,6 @@ import java.util.logging.Logger;
 public class FirstController {
     private UserService userService;
 
-    private final static Logger LOGGER = Logger.getLogger(FirstController.class.getName());
-
     @Autowired
     public FirstController(UserService userService) {
         this.userService = userService;
