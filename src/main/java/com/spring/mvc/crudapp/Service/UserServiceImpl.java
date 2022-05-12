@@ -4,18 +4,22 @@ import com.spring.mvc.crudapp.DAO.UserDAO;
 import com.spring.mvc.crudapp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Component
+@Service
 public class UserServiceImpl implements UserService {
 
+    private UserDAO userDAO;
+
     @Autowired
-    UserDAO userDAO;
+    public UserServiceImpl(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 
     @Override
-    @Transactional
     public List<User> getListUsers() {
         return userDAO.getListOfUsers();
     }
@@ -27,9 +31,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
     public User findById(Long id) {
-       return userDAO.findById(id);
+        User user = userDAO.findById(id);
+        user.setId(id);
+        return user;
     }
 
     @Override
@@ -40,7 +45,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void update(Long id, User user) {
-        userDAO.update(id,user);
+    public void update(User user) {
+        userDAO.update(user);
     }
 }

@@ -4,31 +4,38 @@ package com.spring.mvc.crudapp.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column
     private Long id;
 
     public Long getId() {
         return id;
     }
 
-    @Column(name = "name")
+    @Column
     private String name;
 
-    @Column(name = "last_name")
+    @Column
     private String lastName;
 
-    @Column(name = "email")
+    @Column
     private String email;
 
     public User() {
     }
 
     public User(String name, String lastName, String email) {
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
+    public User(Long id, String name, String lastName, String email) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -56,5 +63,9 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
